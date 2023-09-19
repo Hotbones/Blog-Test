@@ -1,0 +1,34 @@
+config:
+  target: 'https://www.ministryoftesting.com'
+  phases:
+    - duration: 60 # Duración de la prueba en segundos (1 minutos)
+      arrivalRate: 10 # tasa para aumentar o reducir la carga en tu aplicación durante la prueba.
+      rampTo: 5 # La tasa de llegada aumentará gradualmente hasta llegar a 5 durante la duración de la fase.
+# ejemplo que muestra desde 6
+
+scenarios:
+  - flow:
+      - post:
+          url: 'https://cdn.getgist.com/translation_files/en_translation.json'
+          json: '{}'
+            userId: '{{ __random(1, 10) }}'
+            key1: 'value1'
+            title: 'Carga de múltiples publicaciones' # modulo 3 despues del LOg in OK
+            body: 'This is the body of the test post'
+        think: 1
+
+  - flow:
+      - get:
+          url: 'https://cdn.getgist.com/translation_files/en_translation.json'
+            title: 'Carga de imágenes' # modulo 1 inicio
+            body: 'This is the body of the test get'
+        think: 2
+
+  - flow:
+      - get:
+          url: 'https://messenger.getgist.com/projects/zui7pcpe/articles?random_id=83b7f1b1-e720-ba58-3aa9-c9fe12d6ef6d&search_text=&page=1'
+            title: 'Carga de comentarios' #  modulo 4 despues del LOg in OK, iniciar chat
+            body: 'This is the body of the test get'
+        think: 3
+
+
