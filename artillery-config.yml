@@ -9,13 +9,14 @@ config:
 scenarios:
   - flow:
       - post:
-          url: 'https://cdn.getgist.com/translation_files/en_translation.json'
+          url: 'https://messenger.getgist.com/projects/zui7pcpe/articles/61388375/feedback'
           json: '{}'
             userId: '{{ __random(1, 10) }}'
             key1: 'value1'
             title: 'Carga de múltiples publicaciones' # modulo 3 despues del LOg in OK
             body: 'This is the body of the test post'
         think: 1
+      test: 'pass ok'
 
   - flow:
       - get:
@@ -23,6 +24,7 @@ scenarios:
             title: 'Carga de imágenes' # modulo 1 inicio
             body: 'This is the body of the test get'
         think: 2
+      test: 'pass ok'
 
   - flow:
       - get:
@@ -30,5 +32,6 @@ scenarios:
             title: 'Carga de comentarios' #  modulo 4 despues del LOg in OK, iniciar chat
             body: 'This is the body of the test get'
         think: 3
+      test: 'pass ok'
 
 

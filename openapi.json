@@ -1,0 +1,86 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+    "title": "Ministry of Testing API",
+    "description": "API para pruebas de carga y rendimiento de la página https://www.ministryoftesting.com/",
+    "version": "1.0.0",
+    "contact": {
+        "Email": "3cwyjdyS$R$d6D!",
+        "Password": "hotbones22@email.com"
+    }
+    },
+    "paths": {
+    "/cargar-publicaciones": {
+        "post": { 
+        "summary": "Carga de múltiples publicaciones",
+        "description": "Simula la carga simultánea de múltiples publicaciones desde diferentes usuarios y mide el tiempo de respuesta y el rendimiento del servidor.",
+        "requestBody": {
+            "description": "Datos de carga de publicaciones",
+            "content": {
+            "application/json": {
+                "example": {
+                "usuarios": ["usuario1", "usuario2", "usuario3"],
+                "publicaciones": [
+                    {"titulo": "Publicación 1", "contenido": "Contenido de la publicación 1"},
+                    {"titulo": "Publicación 2", "contenido": "Contenido de la publicación 2"}
+                ]
+                }
+            }
+            }
+        },
+        "responses": {
+            "200": {
+            "description": "Carga exitosa de publicaciones"
+            }
+        }
+        }
+    },
+    "/cargar-imagenes": {
+        "post": {
+        "summary": "Carga de imágenes en una publicación",
+        "description": "Evalúa el rendimiento de carga de una publicación con numerosas imágenes adjuntas y verifica que se carguen eficientemente.",
+        "requestBody": {
+            "description": "Datos de carga de imágenes",
+            "content": {
+            "application/json": {
+                "example": {
+                "publicacion_id": "123",
+                "imagenes": ["imagen1.jpg", "imagen2.jpg"]
+                }
+            }
+            }
+        },
+        "responses": {
+            "200": {
+            "description": "Carga exitosa de imágenes"
+            }
+        }
+        }
+    },
+    "/cargar-comentarios": {
+        "post": {
+        "summary": "Carga de comentarios en una publicación popular",
+        "description": "Simula la carga de comentarios en una publicación popular y verifica cómo afecta al tiempo de respuesta de la página.",
+        "requestBody": {
+            "description": "Datos de carga de comentarios",
+            "content": {
+            "application/json": {
+                "example": {
+                "publicacion_id": "456",
+                "comentarios": [
+                    {"usuario": "usuario4", "texto": "Comentario 1"},
+                    {"usuario": "usuario5", "texto": "Comentario 2"}
+                ]
+                }
+            }
+            }
+        },
+        "responses": {
+            "200": {
+            "description": "Carga exitosa de comentarios"
+            }
+        }
+        }
+    }
+    }
+}
