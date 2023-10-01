@@ -4,7 +4,7 @@ import {test, expect} from '@playwright/test'
 test('Test 4: Búsquedas', async ({page}) =>{
 console.log('Test 4: Búsquedas');
 
-console.log('Escenario 1: Búsqueda con resultados precisos:');
+console.log('Escenario 1: Búsqueda con resultados precisos');
 console.log('Se abre el navegador e Inicia el Test');
     await page.goto('https://www.ministryoftesting.com/');
     //1.	Navegar a la página de búsqueda
