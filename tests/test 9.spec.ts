@@ -13,7 +13,7 @@ import { spawn } from 'child_process';
 import * as fs from 'fs';
 test('Test 9', async () => {
 
-    console.log('Inicia Test 8 - Dispositivos móviles:');
+    console.log('Inicia Test 9 - Escaneo de vulnerabilidades');
 
   // Inicia Playwright
   const browser = await chromium.launch();
@@ -65,5 +65,5 @@ test('Test 9', async () => {
   await browser.close();
   zapProcess.kill();
 
-  console.log('Prueba de escaneo de seguridad completada.');
+  console.log('Finaliza test 9');
 })
