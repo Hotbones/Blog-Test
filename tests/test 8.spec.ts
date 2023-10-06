@@ -1,17 +1,8 @@
-/*
-• Escenario 1: Pruebas de navegación táctil: Utiliza Playwright para emular gestos táctiles
-en dispositivos móviles y verifica que los usuarios puedan navegar y interactuar de manera efectiva.
-• Escenario 2: Comprobación de velocidad de carga en dispositivos móviles: Mide el tiempo de carga 
-de tu blog en dispositivos móviles y verifica que sea rápido y eficiente.
-• Escenario 3: Pruebas de notificaciones push: Si tu blog utiliza notificaciones push, 
-verifica que se entreguen correctamente en dispositivos móviles.
-*/
-
 import {chromium, devices, test} from '@playwright/test'
 
 test('Test 8', async () => {
 
-console.log('Inicia Test 8 - dispositivos móviles:');
+console.log('Inicia Test 8 - Dispositivos móviles:');
 console.log('Escenario 1: Pruebas de navegación táctil:');
 
 const devicesToTest = [
@@ -33,7 +24,7 @@ for (const device of devicesToTest) {
     const context = await browser.newContext({
     ...devices[device],
     });
-    
+
     const page = await context.newPage();
 try {
     await page.goto('https://www.ministryoftesting.com/');
@@ -61,7 +52,7 @@ try {
     await page.touchscreen.tap(300,200)
     await page.touchscreen.tap(350,250)
     await page.touchscreen.tap(100,100)
-    console.log('Se verifica pellizcar la pantalla');
+    console.log('Se verifica ampliar y reducir la pantalla');
 
     //Rotar
  // Rotar en sentido horario
@@ -86,9 +77,52 @@ try {
 } finally {
     await page.close();
 }
+
+console.log('Se verifica el escenario 1 correctamente');
+
+
+console.log('Escenario 2: Comprobación de velocidad de carga');
+
+    console.log('Se navega en la pagina de cada dispositivo');
+
+    const page1 = await context.newPage();
+try {
+
+// Realiza las pruebas de velocidad de carga
+console.log(`Inicia el test de velocidad de carga del dispoitivo ${device}`)
+
+// Inicia el cronómetro antes de cargar la página
+const startTime = new Date().getTime();
+
+// Navega a la página del blog
+await page1.goto('https://www.ministryoftesting.com/');
+await page1.pause()
+
+// Detén el cronómetro después de que la página se haya cargado completamente
+const endTime = new Date().getTime();
+
+// Mide el tiempo de carga en milisegundos
+const loadTime = endTime - startTime;
+    console.log(`Tiempo de carga: ${loadTime} ms, del dispositivo ${device}`);
+
+// Verifica la velocidad de carga
+const maxLoadTime = 5000; // 5 segundos
+
+    if (loadTime <= maxLoadTime) {
+    console.log(`La página se cargó de manera rápida y eficiente. ${device} passed`);
+    } else {
+    console.log(`La página se cargó lentamente. ${device} No passed`);
+    }
+
+} catch (error) {
+    // Maneja cualquier error que pueda ocurrir al abrir el dispositivo
+    console.error(`Error al abrir el dispositivo ${device}: ${error.message}`);
+} finally {
+    await page1.close();
 }
-console.log('Se verifica el escenario 2 correctamente');
-console.log('Finaliza el Test 8 correctamente');
+}
+    console.log('Finaliza el Test 8 ');
 })
+
 
 

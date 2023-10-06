@@ -44,16 +44,16 @@ console.log('Inicia el Escenario 2: Pruebas de diseño responsive');
 console.log('Se agregan los dispositivos a probar');
 
 const devicesToTest = [
-  'iPhone SE',
-  'iPhone XR',
-  'iPhone 12 Pro',
-  'Pixel 5',
-  'Samsung Galaxy S8+',
-  'Samsung Galaxy S20 Ultra',
-  'iPad Air',
-  'iPad Mini',
-  'Surface Pro 7',
-  'Samsung Galaxy A51/71'
+'iPhone SE',
+'iPhone XR',
+'iPhone 12 Pro',
+'Pixel 5',
+'Samsung Galaxy S8+',
+'Samsung Galaxy S20 Ultra',
+'iPad Air',
+'iPad Mini',
+'Surface Pro 7',
+'Samsung Galaxy A51/71'
 ];
 
   const browser = await chromium.launch();
